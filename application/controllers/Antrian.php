@@ -12,6 +12,7 @@ class Antrian extends CI_Controller
 		$data['nomor2'] = $this->get_last(2, $tanggal);
 		$data['nomor3'] = $this->get_last(3, $tanggal);
 		$data['nomor4'] = $this->get_last(4, $tanggal);
+		$data['nomor5'] = $this->get_last(5, $tanggal);
 		$this->load->view('view_antrian', $data);
 	}
 

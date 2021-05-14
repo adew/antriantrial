@@ -2,7 +2,9 @@
 <html>
 
 <head>
-	<title>Antrian Pendaftaran Pasien Melinda</title>
+	<title>Panggilan Antrian </title>
+	<!-- Favicon icon -->
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon.ico">
 	<?php $this->load->view('css'); ?>
 	<style type="text/css">
 		@media print {
@@ -33,15 +35,22 @@
 
 	</div>
 	<div class="container-fluid">
+		<div class="row flex-row d-flex justify-content-center" style="background-color: green;">
+			<span style="font-size:40px; color:white; ">
+				<label id="hari_ini">PANGGILAN ANTRIAN PENGADILAN AGAMA TILAMUTA</label>
+			</span>
+		</div>
 		<div class="row">
-			<div class="col-md-4">
-				<h3><strong><?= $this->session->userdata('nama'); ?></strong>(LOKET - <?= $this->session->userdata('loket_temp'); ?>)</h3>
+			<div class="col-md-3">
+				<h3><strong><?= $this->session->userdata('nama'); ?></strong>
+					<span style="color:red">#LOKET <?= $this->session->userdata('loket_temp'); ?></span>
+				</h3>
 			</div>
 			<div class="col-md-3">
-				<br><br><br><br><br><br><br>
+				<br><br><br>
 				<div class="card-deck shadow-lg p-3 mb-5 bg-white rounded" id="print-antri">
 					<div class="card">
-						<div class="card-header text-center">Melinda Hospital 1</div>
+						<div class="card-header text-center">PA TILAMUTA</div>
 						<strong style="font-size: 80px; text-align: center;" id="no-waiting"><?= $data_waiting->nomor; ?></strong>
 						<div class="card-body">
 							<h5 class="card-title text-center">Terima Kasih Telah Menunggu</h5>
@@ -53,10 +62,10 @@
 				<button type="button" onclick="panggil()" class="btn btn-lg btn-warning" style="width:100%;"> Panggil</button>
 			</div>
 			<div class="col-md-3">
-				<br><br><br><br><br><br><br>
+				<br><br><br>
 				<div class="card-deck shadow-lg p-3 mb-5 bg-white rounded" id="print-antri">
 					<div class="card">
-						<div class="card-header text-center">Melinda Hospital 1</div>
+						<div class="card-header text-center">PA TILAMUTA</div>
 						<strong style="font-size: 80px; text-align: center;" id="no-servicing"><?= $data_servicing->nomor; ?></strong>
 						<div class="card-body">
 							<h5 class="card-title text-center">Terima Kasih Telah Menunggu</h5>
@@ -65,7 +74,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-2 text-right">
+			<div class="col-md-3 text-right">
 				<a href="javascript:void(0)" onclick="logout()">
 					<h3>Logout</h3>
 				</a>
@@ -86,7 +95,8 @@
 				dataType: 'JSON',
 				success: function(data) {
 					if (data == 0) {
-						alert('antrian habiss!!');
+						$("#no-waiting").html('<p style="font-size:30px;">Antrian Kosong</p>');
+						// alert('antrian habiss!!');
 					} else if (data != null) {
 						data_servicing = data.data_servicing;
 						data_waiting = data.data_waiting;

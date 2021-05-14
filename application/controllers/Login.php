@@ -29,7 +29,7 @@ class Login extends CI_Controller
 			// $data_loket = $cek_ip->row();
 			// $no_loket = $data_loket->no_loket;
 			$query_cek = $this->db->where(array('username' => $username))->where(array('password' => $password))->get('user');
-			if ($query_cek->num_rows() > 0) {
+			if (($query_cek->num_rows() > 0) and $no_loket != 0) {
 				$data = $query_cek->row();
 				$data_session = array(
 					'nama' => $data->nama,

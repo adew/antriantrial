@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon.ico">
     <title>Administrator Antrian | PA Tilamuta</title>
     <!-- Bootstrap Core CSS -->
     <link href="<?= base_url('asset'); ?>/css/lib/bootstrap/bootstrap.min.css" rel="stylesheet">
